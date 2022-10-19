@@ -1,21 +1,16 @@
-import AppBreadcrumb from './AppBreadcrumb'
-import AppContent from './AppContent'
-import AppFooter from './AppFooter'
-import AppHeader from './AppHeader'
-import AppHeaderDropdown from './header/AppHeaderDropdown'
-import AppSidebar from './AppSidebar'
-import DocsCallout from './DocsCallout'
-import DocsLink from './DocsLink'
-import DocsExample from './DocsExample'
+import Header from "./Header";
+import AppContent from "./AppContent";
+import CategoryCard from "./categories/CategoryCard";
+import ProductCard from "./product/ProductCard";
+import CityCard from "./cities/CityCard";
+import Footer from "./Footer";
+
 
 export {
-  AppBreadcrumb,
-  AppContent,
-  AppFooter,
-  AppHeader,
-  AppHeaderDropdown,
-  AppSidebar,
-  DocsCallout,
-  DocsLink,
-  DocsExample,
+    Header,
+    AppContent,
+    CategoryCard,
+    ProductCard,
+    CityCard,
+    Footer
 }

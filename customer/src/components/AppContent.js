@@ -1,14 +1,13 @@
 import React, { Suspense } from 'react'
+import { Container } from 'react-bootstrap'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { CContainer, CSpinner } from '@coreui/react'
-
-// routes config
 import routes from '../routes'
 
 const AppContent = () => {
   return (
-    <CContainer lg>
-      <Suspense fallback={<CSpinner color="primary" />}>
+    <div>
+         <Container fluid>
+      <Suspense >
         <Routes>
           {routes.map((route, idx) => {
             return (
@@ -23,11 +22,12 @@ const AppContent = () => {
               )
             )
           })}
-          <Route path="/" element={<Navigate to="dashboard" replace />} />
+          <Route path="/" element={<Navigate to="home" replace />} />
         </Routes>
       </Suspense>
-    </CContainer>
+    </Container>
+    </div>
   )
 }
 
-export default React.memo(AppContent)
+export default AppContent
