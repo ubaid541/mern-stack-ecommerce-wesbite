@@ -5,16 +5,17 @@ import { CategoryCard } from '../../components'
 const AllCategories = () => {
   return (
     <>
-        <section className='allCategories'>
+        <div className='allCategories'>
             <Container fluid="md">
                 <div className='all_category_heading my-5'>
                    <h2>All Categories</h2>
                 </div>
-                <div>
+                <div className='mb-5'>
                 <CategoryCard/>
                 </div>
+                
             </Container>
-        </section>
+        </div>
     </>
   )
 }

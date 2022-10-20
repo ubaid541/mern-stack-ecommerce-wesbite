@@ -31,11 +31,6 @@ const ProductCard = () => {
     </div>
         </div>
 
-        <div className='product_list_btn my-3'>
-            <Link to="/customer/product" className='btn btn-primary'>
-              All Products
-            </Link>
-        </div>
     </>
   )
 }

@@ -11,15 +11,12 @@ const CategoryCard = () => {
             <Card style={{ width: '18rem' }}>
                 <Card.Body>
                     <Card.Title>Card Title</Card.Title>
-                    <Link to="/customer/category" className='btn btn-primary mt-2'><ArrowRight/> Explore  </Link>
+                    <Link to="/customer/singlecategory" className='btn btn-primary mt-2'><ArrowRight/> Explore  </Link>
                 </Card.Body>
             </Card>
             </div>
         </div>
 
-        <div className='category_list_btn my-3'>
-            <Link to="/customer/category" className='btn btn-primary'>  All Categories. </Link>
-        </div>
     </>
   )
 }
