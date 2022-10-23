@@ -23,10 +23,10 @@ const SingleProduct = () => {
                             </div>
 
                             <div className='product_qty'>
-                            <div class="form-floating">
+                            <div className="form-floating">
                     <input
                       name="qty"
-                      class="form-control"
+                      className="form-control"
                       type="number"
                       placeholder="Product Quantity"
                       defaultValue="1"
@@ -34,12 +34,12 @@ const SingleProduct = () => {
                       id="qty"
                       required
                     />
-                    <label for=" floatingInput">Quantity</label>
+                    <label htmlFor=" floatingInput">Quantity</label>
                   </div>
                             </div>
 
                             <div className='product_coupon my-3'>
-                            <li class="list-group-item d-flex justify-content-between">
+                            <li className="list-group-item d-flex justify-content-between">
                 <div>
                   <p>Discount</p>
                 </div>
@@ -47,7 +47,7 @@ const SingleProduct = () => {
                   <input
                     type="hidden"
                     name="discount_ID"
-                    class="form-control"
+                    className="form-control"
                     value="<%= product.discount._id %>"
                     id="discount"
                   />
@@ -59,16 +59,16 @@ const SingleProduct = () => {
                             </div>
 
                             <div className='product_attr'>
-                            <li class="list-group-item d-flex justify-content-between">
-                <div class="form-check">
+                            <li className="list-group-item d-flex justify-content-between">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     name="attr"
                     type="checkbox"
                     value="<%= product.pro_attr._id %>"
                     id="attr"
                   />
-                  <label class="form-check-label">
+                  <label className="form-check-label">
                    Attribute Name
                   </label>
                 </div>
@@ -79,16 +79,16 @@ const SingleProduct = () => {
                             </div>
 
                             <div className='product_addon'>
-                            <li class="list-group-item d-flex justify-content-between">
-                <div class="form-check">
+                            <li className="list-group-item d-flex justify-content-between">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     name="addon"
                     type="checkbox"
                     value="<%= product.pro_addon._id %>"
                     id="addon"
                   />
-                  <label class="form-check-label">
+                  <label className="form-check-label">
                    Addon
                   </label>
                 </div>
