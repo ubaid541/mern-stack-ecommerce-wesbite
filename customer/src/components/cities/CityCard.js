@@ -15,7 +15,7 @@ const CityCard = ({city}) => {
             <Card style={{ width: '18rem' }} className="category_card">
                 <Card.Body>
                     <Card.Title style={{color:'#fffff7'}}>{city?.city_name}</Card.Title>
-                    <Link to={`/customer/city/${city?._id}`} className='btn btn-primary mt-2'><ArrowRight/> Explore  </Link>
+                    <Link to={`/customer/singlecity/${city?._id}`} className='btn btn-primary mt-2'><ArrowRight/> Explore  </Link>
                 </Card.Body>
             </Card>
             </div>

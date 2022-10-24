@@ -62,7 +62,6 @@ const Home = () => {
              ))}
 
          </div>
-      
           
         <div className='category_list_btn my-3'>
             <Link to="/customer/category" className='btn btn-primary'>  All Categories. </Link>
@@ -87,8 +86,6 @@ const Home = () => {
             <Link to="/customer/productlist" className='btn btn-primary'>  All Products. </Link>
         </div>
         </section>
-
-
     </>
   )
 }

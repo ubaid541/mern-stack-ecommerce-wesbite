@@ -14,15 +14,15 @@ const userSchema = new Schema({
     business_name : {type: String, unique:true},
     city : {
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'city',
+        ref: 'City',
     },
     business_type : {
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'business_type',
+        ref: 'Business_Type',
     },
     business_category : {
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'business_category',
+        ref: 'Business_Category',
     },
     role:{type:String,default:"seller"}
  }, {timestamps: true})

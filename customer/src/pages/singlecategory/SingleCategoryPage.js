@@ -9,9 +9,6 @@ const SingleCategoryPage = () => {
 
   const singleCategory = useFetch(`/customer/singlecategory/${id}`,limit)
 
-  console.log(singleCategory);
-
-
   return (
 
     <>
@@ -24,7 +21,6 @@ const SingleCategoryPage = () => {
 
           {singleCategory.data[1] !== undefined && singleCategory.data[1].length > 0 ?
           singleCategory.data[1]?.map((item,index)=>(
-        
               
                 <ProductCard product={item}/>
 
