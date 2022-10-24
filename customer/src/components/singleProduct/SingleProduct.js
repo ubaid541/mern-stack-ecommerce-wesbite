@@ -1,25 +1,25 @@
 import React from 'react'
 import { Button, Col, Container, Image, Row } from 'react-bootstrap'
 import { Cart } from 'react-bootstrap-icons'
-import image from "../../assets/images/category_bg.jpg"
 
-const SingleProduct = () => {
+const SingleProduct = ({product}) => {
+
   return (
     <>
     <Container>
                 <Row>
-                    <Col><Image src={image} className="img-fluid" width="400px"/></Col>
+                    <Col><Image src={product?.pro_image} className="img-fluid" width="400px" style={{height:"500px"}}/></Col>
                     <Col >
                         <div className='product_details text-start' style={{marginTop:'20px'}}>
                             <div className='product_name'>
-                                <h3>Product Name</h3>
+                                <h3>{product?.pro_name}</h3>
                             </div>
                             <hr width="80px"/>
                             <div className='product_price my-3'>
-                                <h5>Rs-250</h5>
+                                <h5>Rs-{product?.pro_price}</h5>
                             </div>
                             <div className='product_desc my-3'>
-                                <p>loremidfa;ldsjfdfje;wrjioepcndn ejoriep jnfeowp dmnfewirjq mdcdsmfmewfoip4wrjwe dvjeoiwrjpoqermnd,svnsdfowprewirjhpewqrewiop</p>
+                                <p>{product?.pro_desc}</p>
                             </div>
 
                             <div className='product_qty'>
@@ -38,26 +38,21 @@ const SingleProduct = () => {
                   </div>
                             </div>
 
-                            <div className='product_coupon my-3'>
-                            <li className="list-group-item d-flex justify-content-between">
+                {product?.discount ? 
+
+                <div className='product_coupon my-3'>
+                <li className="list-group-item d-flex justify-content-between">
                 <div>
-                  <p>Discount</p>
+                  <p>Discount:<span className='fw-bold'> {product?.discount.coupon_name}</span></p>
                 </div>
                 <div>
-                  <input
-                    type="hidden"
-                    name="discount_ID"
-                    className="form-control"
-                    value="<%= product.discount._id %>"
-                    id="discount"
-                  />
-                  <p>
-                    Coupon &nbsp; 200Rs
-                  </p>
+                  <p>{product?.discount.coupon_value}Rs</p>
                 </div>
               </li>
                             </div>
+                 :"" }
 
+                    {product?.pro_attr ?
                             <div className='product_attr'>
                             <li className="list-group-item d-flex justify-content-between">
                 <div className="form-check">
@@ -69,17 +64,20 @@ const SingleProduct = () => {
                     id="attr"
                   />
                   <label className="form-check-label">
-                   Attribute Name
+                  {product?.pro_attr.attr_name}
                   </label>
                 </div>
                 <div>
-                  <p>200Rs</p>
+                  <p> {product?.pro_attr.attr_price}Rs</p>
                 </div>
               </li>
                             </div>
+             :"" }
 
-                            <div className='product_addon'>
-                            <li className="list-group-item d-flex justify-content-between">
+
+            {product?.pro_addon ?
+                <div className='product_addon'>
+                <li className="list-group-item d-flex justify-content-between">
                 <div className="form-check">
                   <input
                     className="form-check-input"
@@ -89,15 +87,17 @@ const SingleProduct = () => {
                     id="addon"
                   />
                   <label className="form-check-label">
-                   Addon
+                  {product?.pro_addon.addon_name}
                   </label>
                 </div>
                 <div>
-                  <p>350Rs</p>
+                  <p> {product?.pro_addon.addon_price}Rs</p>
                 </div>
 
               </li>
                             </div>
+
+            :""}
 
                             <div className='add_to_cart my-4'>
                             <Button variant="danger" size="lg"><Cart className='me-2' style={{marginTop:'-5%'}}/>

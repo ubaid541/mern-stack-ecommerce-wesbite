@@ -7,23 +7,20 @@ import "./CityCard.css"
 
 
 
-const CityCard = () => {
+const CityCard = ({city}) => {
   return (
     <>
          <div className='category_list'>
             <div className='row'>
             <Card style={{ width: '18rem' }} className="category_card">
                 <Card.Body>
-                    <Card.Title style={{color:'#fffff7'}}>Card Title</Card.Title>
-                    <Link to="/customer/city" className='btn btn-primary mt-2'><ArrowRight/> Explore  </Link>
+                    <Card.Title style={{color:'#fffff7'}}>{city?.city_name}</Card.Title>
+                    <Link to={`/customer/city/${city?._id}`} className='btn btn-primary mt-2'><ArrowRight/> Explore  </Link>
                 </Card.Body>
             </Card>
             </div>
         </div>
 
-        <div className='category_list_btn my-3'>
-            <Link to="/customer/cities" className='btn btn-primary'> All Cities. </Link>
-        </div>
     </>
   )
 }

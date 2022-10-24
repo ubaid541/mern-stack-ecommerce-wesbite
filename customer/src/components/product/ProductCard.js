@@ -4,31 +4,51 @@ import { ArrowRight} from 'react-bootstrap-icons'
 import { Link } from 'react-router-dom'
 
 
-const ProductCard = () => {
+const ProductCard = ({product}) => {
+
   return (
     <>
         <div className='product_list'>
-            <div className='row'>
+
             <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+        <Card.Img variant="top" src={product?.pro_image} height="200px" />
         <Card.Body>
-            <Card.Title>Card Title</Card.Title>
+            <Card.Title>{product?.pro_name}</Card.Title>
             <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            {product?.pro_desc}
             </Card.Text>
         </Card.Body>
+      
         <ListGroup className="list-group-flush">
-            <ListGroup.Item>Cras justo odio</ListGroup.Item>
-            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-        </ListGroup>
+        {product?.pro_category ?
+        <ListGroup.Item className='d-flex justify-content-between'>
+            <h6>Product Category</h6>
+            <p>{product?.pro_category.cat_name}</p>
+        </ListGroup.Item>
+        :""
+        }
+        {product?.pro_addon ?
+        <ListGroup.Item className='d-flex justify-content-between'>
+            <h6>Product Addon</h6>
+            <p>{product?.pro_addon.addon_name}</p>
+        </ListGroup.Item>
+        :""
+        }
+        {product?.pro_attr ?
+        <ListGroup.Item className='d-flex justify-content-between'>
+            <h6>Product Attribute</h6>
+            <p>{product?.pro_attr.attr_name}</p>
+        </ListGroup.Item>
+        :""
+        }
+    </ListGroup>
+   
         <Card.Body>
-        <Link to="/customer/singleproduct" className='btn btn-primary mt-2 me-3'><ArrowRight/> Product  </Link>
-        <Link to="/customer/singlebusiness" className='btn btn-primary mt-2'><ArrowRight/> Business  </Link>
+        <Link to={`/customer/singleproduct/${product?._id}`} className='btn btn-primary mt-2 me-3'><ArrowRight/> {product?.pro_name}  </Link>
+        <Link to={`/customer/singlebusiness/${product?.seller_id._id}`} className='btn btn-primary mt-2'><ArrowRight/> {product?.seller_id.business_name}  </Link>
         </Card.Body>
         </Card>
-    </div>
+
         </div>
 
     </>

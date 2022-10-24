@@ -10,6 +10,7 @@ import {sellerAuthController} from "../controller/index.js"
 import {categoryController} from "../controller/index.js"
 import {couponController} from "../controller/index.js"
 import {productController} from "../controller/index.js"
+import cust_controller from '../controller/customer/customer_controller.js'
 import upload from '../utils/multer.js'
 
 // <----- ADMIN ROUTES ----->
@@ -50,5 +51,14 @@ router.get('/single-product/:id',verifyseller,productController.getSingleProduct
 router.post('/products/addProduct',upload.single("pro_image"),verifyseller,productController.addProduct)
 router.delete('/products/deleteProduct/:id',verifyseller,productController.deleteProduct)
 router.put('/products/updateProduct/:id',verifyseller,couponController.updateCoupon)
+
+// <----- CUSOTMER ROUTES ----->
+router.get('/customer/category',cust_controller.getAllCategories)
+router.get('/customer/singlecategory/:id',cust_controller.getSingleCategory)
+router.get('/customer/singlecategory/:id',cust_controller.getSingleCategory)
+router.get('/customer/product',cust_controller.getAllProducts)
+router.get('/customer/singleproduct/:id',cust_controller.getSingleProduct)
+router.get('/customer/city',cust_controller.getAllCities)
+
 
 export default router
