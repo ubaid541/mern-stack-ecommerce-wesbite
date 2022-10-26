@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import { ProductCard, SingleProduct } from '../../components'
 import useFetch from '../../hooks/useFetch'
@@ -12,8 +12,10 @@ const SingleProductPage = () => {
   const product = useFetch(`/customer/product/`,limit)
 
   return (
+    
     <>
-      <div className='singleProductPage m-5'>
+
+      (<div className='singleProductPage m-5'>
         <SingleProduct product={singleProduct.data}/>
       </div>
 

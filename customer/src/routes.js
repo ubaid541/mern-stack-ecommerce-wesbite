@@ -8,9 +8,15 @@ import SingleBusinessPage from './pages/singleBusiness/SingleBusinessPage'
 import AllProducts from './pages/products/AllProducts'
 import AllCities from './pages/city/AllCities'
 import SingleCity from './pages/singlecity/SingleCity'
+import Register from './pages/auth/register/Register'
+import Login from './pages/auth/login/Login'
 const Home = React.lazy(() => import('./pages/Home/Home'))
 
 const routes = [
+    { path: '/customer/register', name: 'Customer Registeration', element: Register, exact: true },
+    { path: '/customer/login', name: 'Customer Registeration', element:Login, exact: true },
+
+
     { path: '/', name: 'Home', element: Home, exact: true },
     { path: '/customer/category', name: 'All Categories', element: AllCategories, exact: true },
     { path: '/customer/singlecategory/:id', name: 'Single Category', element: SingleCategoryPage, exact: true },

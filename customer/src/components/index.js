@@ -6,6 +6,7 @@ import CityCard from "./cities/CityCard";
 import Footer from "./Footer";
 import SingleProduct from "./singleProduct/SingleProduct";
 import BusinessListCard from "./businesslistcard/BusinessListCard";
+import Form from "./from/Form";
 
 
 export {
@@ -16,5 +17,6 @@ export {
     CityCard,
     SingleProduct,
     BusinessListCard,
+    Form,
     Footer
 }

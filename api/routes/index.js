@@ -12,6 +12,7 @@ import {couponController} from "../controller/index.js"
 import {productController} from "../controller/index.js"
 import cust_controller from '../controller/customer/customer_controller.js'
 import upload from '../utils/multer.js'
+import customerAuthController from '../controller/customer/auth/customer_auth.js'
 
 // <----- ADMIN ROUTES ----->
 router.get('/business_registeration',b_details.get_b_details)
@@ -53,6 +54,11 @@ router.delete('/products/deleteProduct/:id',verifyseller,productController.delet
 router.put('/products/updateProduct/:id',verifyseller,couponController.updateCoupon)
 
 // <----- CUSOTMER ROUTES ----->
+router.post('/customer/register',customerAuthController.register)
+router.post('/customer/login',customerAuthController.login)
+router.post('/customer/logout',customerAuthController.logout)
+
+
 router.get('/customer/category',cust_controller.getAllCategories)
 router.get('/customer/singlecategory/:id',cust_controller.getSingleCategory)
 router.get('/customer/singlecategory/:id',cust_controller.getSingleCategory)

@@ -19,6 +19,21 @@ const _nav = [
         to: '/customer/productlist'
     },
 
+    {
+        name: 'Account',
+        items:[
+    {
+        name: 'Register',
+        to: '/customer/register'
+    },
+    {
+        name: 'Login',
+        to: '/customer/login'
+    }
+        ]
+    },
+
+
 ]
 
 export default _nav

@@ -1,8 +1,20 @@
-import React from 'react'
-import { Button, Container, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap'
-import { Link } from 'react-bootstrap-icons'
+import axios from 'axios'
+import React, { useContext } from 'react'
+import { Badge, Button, Container, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Cart, Cart2, Cart3, Link } from 'react-bootstrap-icons'
+import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../context/CustomerAuthContext'
 
 const NavItems = ({items}) => {
+  const { user,dispatch } = useContext(AuthContext)
+  const navigate = useNavigate()
+  const handleClick = async (e) =>{
+    e.preventDefault()
+      const res = await axios.post("/customer/logout")
+        dispatch({type:"LOGOUT"})
+       navigate("/")
+
+}
   return (
     <>
                 <Navbar bg="light" expand="lg">
@@ -14,23 +26,25 @@ const NavItems = ({items}) => {
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-        {items?.map((item,index)=>(
+            navbarScroll>
+        {items && items.map((item,index)=>(
+          item.items ?  
+          <NavDropdown title={item.name} id="navbarScrollingDropdown">
+          {item.items.map((subItem,subIndex)=>(
+            <>
+              <NavDropdown.Item key={subIndex} href={subItem.to}>{subItem.name}</NavDropdown.Item>
+              </>
+        )) }
+            </NavDropdown>
+        :
             <>
             <Nav.Link key={index} href={item.to}>{item.name}</Nav.Link>
-            {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown> */}
           </>
         ))}
+         <Nav.Link  href="#" onClick={handleClick}>Logout</Nav.Link>
+         <Nav.Link className='position-relative' style={{color:"#BB2D3B"}} href="#"><Cart3 /><span className="position-absolute top-2 start-100 translate-middle badge rounded-pill bg-danger">
+    0
+  </span></Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control

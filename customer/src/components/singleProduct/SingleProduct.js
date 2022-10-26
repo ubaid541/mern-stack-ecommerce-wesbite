@@ -1,9 +1,10 @@
 import React from 'react'
-import { Button, Col, Container, Image, Row } from 'react-bootstrap'
-import { Cart } from 'react-bootstrap-icons'
+import { Alert, Button, Col, Container, Image, Row } from 'react-bootstrap'
+import { Cart, WifiOff } from 'react-bootstrap-icons'
+import { NetworkConnection } from '../../utils/NetworkConnection'
 
 const SingleProduct = ({product}) => {
-
+  const {isOnline} = NetworkConnection()
   return (
     <>
     <Container>
@@ -100,9 +101,13 @@ const SingleProduct = ({product}) => {
             :""}
 
                             <div className='add_to_cart my-4'>
-                            <Button variant="danger" size="lg"><Cart className='me-2' style={{marginTop:'-5%'}}/>
+                              {isOnline ? 
+                           ( <Button variant="danger" size="lg"><Cart className='me-2' style={{marginTop:'-5%'}}/>
                                 Add To Cart
-                            </Button>
+                            </Button>)
+                             : 
+                             <Alert variant='danger'><WifiOff/> 😔 Kinldy check your internect connection to add product to cart.</Alert>
+                              }
                             </div>
                         </div>
                     </Col>
