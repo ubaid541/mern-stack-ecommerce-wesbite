@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import SingleProduct from "./singleProduct/SingleProduct";
 import BusinessListCard from "./businesslistcard/BusinessListCard";
 import Form from "./from/Form";
+import CartProduct from "./cartproduct/CartProducts";
 
 
 export {
@@ -18,5 +19,6 @@ export {
     SingleProduct,
     BusinessListCard,
     Form,
+    CartProduct,
     Footer
 }

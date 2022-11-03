@@ -69,5 +69,7 @@ router.get('/customer/singlecity/:id',cust_controller.getSingleCity)
 router.get('/customer/business',cust_controller.getAllBusiness)
 router.get('/customer/singlebusiness/:id',cust_controller.getSingleBusiness)
 
+router.get('/customer/cart/:id',cust_controller.getCartDetails)
+
 
 export default router

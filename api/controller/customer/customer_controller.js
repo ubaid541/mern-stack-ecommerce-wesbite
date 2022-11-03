@@ -1,4 +1,4 @@
-import { Category, City, Product, User } from "../../models/index.js";
+import { Category, City, Product, User,Addon,Attr } from "../../models/index.js";
 
 const cust_controller = {
     // categories
@@ -100,6 +100,24 @@ const cust_controller = {
             next(error)
         }
     },
+    async getCartDetails(req,res,next){
+        try {
+            let cart_product = await Product.findOne({_id:req.params.id},{pro_category:0,pro_addon:0,pro_attr:0,discount:0})
+
+            let cart_pro_category = await Category.findOne({_id:req.params.id})
+            let cart_pro_addon = await Addon.findOne({_id:req.params.id})
+            let cart_pro_attr = await Attr.findOne({_id:req.params.id})
+            let cart_pro_seller = await User.findOne({_id:req.params.id})
+
+
+
+
+            res.status(200).json([cart_product,cart_pro_addon,cart_pro_attr,cart_pro_category,cart_pro_seller])
+        } catch (error) {
+            next(error)
+        }
+    },
+
 }
 
 export default cust_controller

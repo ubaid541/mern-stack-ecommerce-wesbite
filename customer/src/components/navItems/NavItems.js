@@ -1,20 +1,30 @@
 import axios from 'axios'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Badge, Button, Container, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { Cart, Cart2, Cart3, Link } from 'react-bootstrap-icons'
 import { useNavigate } from 'react-router-dom'
+import { CartContext } from '../../context/CartContext'
 import { AuthContext } from '../../context/CustomerAuthContext'
 
 const NavItems = ({items}) => {
   const { user,dispatch } = useContext(AuthContext)
+  const { cart } = useContext(CartContext)
   const navigate = useNavigate()
+  const [cartItems, setCartItems] = useState()
+
   const handleClick = async (e) =>{
     e.preventDefault()
       const res = await axios.post("/customer/logout")
         dispatch({type:"LOGOUT"})
        navigate("/")
 
-}
+  }
+
+  useEffect(() => {
+    setCartItems(cart?.totalItems)
+  }, [cart])
+  
+  
   return (
     <>
                 <Navbar bg="light" expand="lg">
@@ -42,8 +52,8 @@ const NavItems = ({items}) => {
           </>
         ))}
          <Nav.Link  href="#" onClick={handleClick}>Logout</Nav.Link>
-         <Nav.Link className='position-relative' style={{color:"#BB2D3B"}} href="#"><Cart3 /><span className="position-absolute top-2 start-100 translate-middle badge rounded-pill bg-danger">
-    0
+         <Nav.Link  href="/customer/cart" className='position-relative' style={{color:"#BB2D3B"}}><Cart3 /><span className="position-absolute top-2 start-100 translate-middle badge rounded-pill bg-danger">
+   {cartItems ? cartItems : 0}
   </span></Nav.Link>
           </Nav>
           <Form className="d-flex">

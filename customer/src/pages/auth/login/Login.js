@@ -14,7 +14,6 @@ const Login = () => {
 
   const user_role = "customer"
 
-  
   const handleChange = (e)=>{
     setUserDetail(
       prev=>({...prev,[e.target.id]:e.target.value})
@@ -62,7 +61,7 @@ const Login = () => {
           </div>)
           }
         </div>
-                        <Card.Body>
+                    <Card.Body>
                             
         <Form>
 

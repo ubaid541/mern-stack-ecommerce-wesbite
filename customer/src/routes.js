@@ -10,6 +10,7 @@ import AllCities from './pages/city/AllCities'
 import SingleCity from './pages/singlecity/SingleCity'
 import Register from './pages/auth/register/Register'
 import Login from './pages/auth/login/Login'
+import Cart from './pages/cart/Cart'
 const Home = React.lazy(() => import('./pages/Home/Home'))
 
 const routes = [
@@ -26,6 +27,7 @@ const routes = [
     { path: '/customer/singleproduct/:id', name: 'Single Product', element: SingleProduct, exact: true },
     { path: '/customer/businesses', name: 'All Businesses', element: AllBusiness, exact: true },
     { path: '/customer/singlebusiness/:id', name: 'All Businesses', element: SingleBusinessPage, exact: true },
+    { path: '/customer/cart', name: 'Cart Products', element: Cart, exact: true },
 ]
 
 export default routes
