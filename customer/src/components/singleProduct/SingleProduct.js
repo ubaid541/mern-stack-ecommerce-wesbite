@@ -58,7 +58,6 @@ const SingleProduct = ({product}) => {
       if (_cart.items[product._id]) {
         _cart.items[product._id].qty = _cart.items + productExtra.qty;
     } else {
-      _cart.items[product._id]  =  {}
       _cart.items[product._id].qty = productExtra.qty;
       _cart.items[product._id].attr = productExtra.attr ;
       _cart.items[product._id].addon = productExtra.addon ;
@@ -105,7 +104,7 @@ theme: "light",
   return (
     <>
     <Container>
-                <Row>
+                <Row className='grid'>
                     <Col><Image src={product?.pro_image} className="img-fluid" width="400px" style={{height:"500px"}}/></Col>
                     <Col >
                         <div className='product_details text-start' style={{marginTop:'20px'}}>

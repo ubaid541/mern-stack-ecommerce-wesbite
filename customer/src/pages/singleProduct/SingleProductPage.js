@@ -15,7 +15,7 @@ const SingleProductPage = () => {
     
     <>
 
-      (<div className='singleProductPage m-5'>
+      <div className='singleProductPage m-5'>
         <SingleProduct product={singleProduct.data}/>
       </div>
 
@@ -26,9 +26,11 @@ const SingleProductPage = () => {
 
         <div className='more_products' sx={{ marginLeft:"20px" }}  style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr 1fr',gridGap:'20px'}}>
 
+          <div className='grid'>
        {product.data?.map((item,index)=>(
           <ProductCard product={item}/>
           ))}
+          </div>
           
         </div>
 
