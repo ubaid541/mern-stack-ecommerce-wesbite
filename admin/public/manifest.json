@@ -1,15 +1,26 @@
 {
-  "short_name": "CoreUI-React",
-  "name": "CoreUI-React sample",
+  "short_name": "FM Admin",
+  "name": "Fatafut Mungwaen Admin",
   "icons": [
     {
-      "src": "./assets/img/favicon.png",
-      "sizes": "100x100",
-      "type": "image/png"
+      "src":"/logo/fatafut-mungwaen-logo.png",
+      "type":"image/png",
+      "sizes":"1024x1024"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/logo/fatafut-mungwaen-logo.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#dc3545",
   "background_color": "#ffffff"
 }
